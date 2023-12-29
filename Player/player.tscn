@@ -1,10 +1,66 @@
-[gd_scene load_steps=4 format=3 uid="uid://dycj2gvl83n0f"]
+[gd_scene load_steps=8 format=3 uid="uid://dycj2gvl83n0f"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_2igyg"]
-[ext_resource type="Texture2D" uid="uid://dxsndyq6b2r4r" path="res://assets/character/rectangle_body.png" id="2_3xali"]
+[ext_resource type="Texture2D" uid="uid://c5x7vcl8fg210" path="res://assets/character/duck normal sheet.png" id="2_rpso2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smtey"]
-size = Vector2(26, 26)
+size = Vector2(1, 1.5)
+
+[sub_resource type="Animation" id="Animation_f5ptm"]
+resource_name = "walk_right"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_w7bqp"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [16, 17]
+}
+
+[sub_resource type="Animation" id="Animation_ukgmn"]
+resource_name = "jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [17, 33, 32, 35, 36, 37, 38, 39, 40]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qi0p5"]
+_data = {
+"idle": SubResource("Animation_w7bqp"),
+"jump": SubResource("Animation_ukgmn"),
+"walk_right": SubResource("Animation_f5ptm")
+}
 
 [node name="player" type="CharacterBody2D"]
 position = Vector2(72, 40)
@@ -13,10 +69,18 @@ script = ExtResource("1_2igyg")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1.79366e-43, 0)
 scale = Vector2(0.00332034, 0.00601852)
-texture = ExtResource("2_3xali")
+texture = ExtResource("2_rpso2")
+hframes = 16
+vframes = 16
+frame = 17
 
 [node name="rectangleshape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_smtey")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(8, 8)
+zoom = Vector2(64, 64)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qi0p5")
+}

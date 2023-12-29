@@ -18,15 +18,20 @@ extends CharacterBody2D
 @onready var axis = Vector2.ZERO
 
 var jumps = 0
+
+func _ready():
+	$AnimationPlayer.play("idle")
+
 #Pre defined physiscs function gets called every cycle.
 func _physics_process(delta):
 	axis = get_input()
 	velocity.y += fall() * delta
 	if axis:
-		jump()
 		walk(walk_acceleration * axis.x * delta)
+		jump()
 	else:
 		friction(ground_friction * delta)
+		
 	move_and_slide()
 
 #Handle the axis from the player 
@@ -43,15 +48,19 @@ func friction(frictionAmount):
 		velocity -= velocity.normalized() * frictionAmount
 	else:
 		velocity = Vector2.ZERO
+		
 
 #Here the speed of the player and a more natural feeling of accelerating the before reaching max speed.
 func walk(acceleration):
+	if is_on_floor():
+		$AnimationPlayer.play("walk_right")
 	velocity.x += acceleration
 	velocity = velocity.limit_length(max_walk_speed)
 
 #Let's the player do a jump.
 func jump():
 	if axis.y and is_on_floor():
+		$AnimationPlayer.play("jump")
 		velocity.y = jump_velocity
 #TODO: The player can only jump if they are on the floor. if the player obtains das boots then a double jump is possible.
 
