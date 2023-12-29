@@ -1,19 +1,19 @@
 extends CharacterBody2D
 
-#Change these values to change the player movement behaviour.
+#Change these values to change the movement behaviour.
 @export var max_walk_speed: float = 400.0
 @export var walk_acceleration: float = 1000.0
 @export var ground_friction: float = 700.0
 
-#Change these values to change the jump curve of the player.
+#Change these values to change the jump curve.
 @export var jump_height: float = 100.0
 @export var jump_time_peak: float = 0.5
 @export var jump_time_descent: float = 0.4
 
-#The jump velocity must be negtive in order for the player to jump.
+#The jump velocity must be negtive in order to jump.
 @onready var jump_velocity: float = ((2.0 * jump_height) / jump_time_peak) * -1.0
 @onready var jump_gravity: float = ((-2.0 * jump_height) / (jump_time_peak * jump_time_peak)) * -1.0
-#The gravity must be ngative to be applied to the player.
+#The gravity must be negative to be applied to objects.
 @onready var fall_gravity: float = ((-2.0 * jump_height) / (jump_time_descent * jump_time_descent)) * -1.0
 @onready var axis = Vector2.ZERO
 
