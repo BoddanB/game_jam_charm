@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfprxr0tl4iuk"]
+
+[ext_resource type="PackedScene" uid="uid://csekqe14oh1vg" path="res://smallplatform.tscn" id="1_3i0ls"]
+[ext_resource type="Script" path="res://battlescreen.gd" id="1_dudhk"]
+
+[node name="battlescreen" type="Node2D"]
+position = Vector2(2, -2)
+script = ExtResource("1_dudhk")
+metadata/_edit_vertical_guides_ = [143.0, 183.0]
+metadata/_edit_horizontal_guides_ = [167.0, 167.0]
+
+[node name="battlecam" type="Camera2D" parent="."]
+position = Vector2(161, 172)
+zoom = Vector2(16, 16)
+
+[node name="smallplatform" parent="." instance=ExtResource("1_3i0ls")]
+position = Vector2(181, 174)
+
+[node name="smallplatform2" parent="." instance=ExtResource("1_3i0ls")]
+position = Vector2(141, 174)
