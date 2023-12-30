@@ -8,27 +8,27 @@ radius = 79.0
 height = 160.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d086w"]
-height = 56.0
+radius = 9.99997
+height = 51.5
 
 [node name="enemy" type="CharacterBody2D"]
 script = ExtResource("1_dhpgi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, -0.749939)
+position = Vector2(5.96046e-08, -5.96046e-08)
 scale = Vector2(0.00260417, 0.0126157)
 texture = ExtResource("1_6ixog")
 
 [node name="detectionArea" type="Area2D" parent="."]
-position = Vector2(-1, -1)
+position = Vector2(49, 6)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectionArea"]
-position = Vector2(2.00003, -0.75)
+position = Vector2(-49, -6)
 shape = SubResource("CapsuleShape2D_ttyn2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.00003, 0.25)
 shape = SubResource("CapsuleShape2D_d086w")
 
 [connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]
