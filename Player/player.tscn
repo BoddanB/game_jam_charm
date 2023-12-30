@@ -63,7 +63,6 @@ _data = {
 }
 
 [node name="player" type="CharacterBody2D"]
-position = Vector2(72, 40)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_2igyg")
@@ -74,7 +73,7 @@ scale = Vector2(0.00332034, 0.00601852)
 texture = ExtResource("2_rpso2")
 hframes = 16
 vframes = 16
-frame = 17
+frame = 16
 
 [node name="rectangleshape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_smtey")
