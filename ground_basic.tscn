@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dhmlpsfrri23m" path="res://assets/ground/grass_tile.png" id="1_rgp4w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rgoto"]
-size = Vector2(1147, 6.75)
+size = Vector2(1150, 6.75)
 
 [node name="ground_basic" type="StaticBody2D"]
 
@@ -13,5 +13,5 @@ scale = Vector2(0.14974, 0.00162037)
 texture = ExtResource("1_rgp4w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(578, 538.625)
+position = Vector2(575, 538.625)
 shape = SubResource("RectangleShape2D_rgoto")
