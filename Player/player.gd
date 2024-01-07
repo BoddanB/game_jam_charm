@@ -1,14 +1,14 @@
 extends CharacterBody2D
 
 #Change these values to change the movement behaviour.
-var max_walk_speed: float = 50.0
-var walk_acceleration: float = 100.0
-var ground_friction: float = 200.0
+const max_walk_speed: float = 20.0
+const walk_acceleration: float = 15.0
+const ground_friction: float = 100.0
 
 #Change these values to change the jump curve.
-var jump_height: float = 2.0
-var jump_time_peak: float = 0.8
-var jump_time_descent: float = 0.4
+const jump_height: float = 4.0
+const jump_time_peak: float = 0.8
+const jump_time_descent: float = 0.4
 
 #The jump velocity must be negtive in order to jump.
 @onready var jump_velocity: float = ((2.0 * jump_height) / jump_time_peak) * -1.0

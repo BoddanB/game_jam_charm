@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dycj2gvl83n0f"]
+[gd_scene load_steps=9 format=3 uid="uid://dycj2gvl83n0f"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_2igyg"]
 [ext_resource type="Texture2D" uid="uid://c5x7vcl8fg210" path="res://assets/character/duck normal sheet.png" id="2_rpso2"]
@@ -62,6 +62,9 @@ _data = {
 "walk_right": SubResource("Animation_f5ptm")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vo6jb"]
+radius = 1.0
+
 [node name="player" type="CharacterBody2D"]
 collision_layer = 3
 collision_mask = 3
@@ -73,7 +76,7 @@ scale = Vector2(0.00332034, 0.00601852)
 texture = ExtResource("2_rpso2")
 hframes = 16
 vframes = 16
-frame = 16
+frame = 17
 
 [node name="rectangleshape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_smtey")
@@ -85,3 +88,8 @@ zoom = Vector2(64, 64)
 libraries = {
 "": SubResource("AnimationLibrary_qi0p5")
 }
+
+[node name="playerhitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerhitbox"]
+shape = SubResource("CircleShape2D_vo6jb")
