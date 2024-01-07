@@ -1,6 +1,5 @@
 extends Node2D
 
-var battle_node = preload("res://battlescreen.tscn")
 var current_scene = "world"
 var change_scene = false
 
