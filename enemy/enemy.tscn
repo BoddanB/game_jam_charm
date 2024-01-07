@@ -1,35 +1,41 @@
-[gd_scene load_steps=5 format=3 uid="uid://r28fp8cvafba"]
+[gd_scene load_steps=6 format=3 uid="uid://r28fp8cvafba"]
 
-[ext_resource type="Texture2D" uid="uid://c5dc27khdpl1r" path="res://enemy/enemy_body.png" id="1_6ixog"]
 [ext_resource type="Script" path="res://enemy/enemy.gd" id="1_dhpgi"]
+[ext_resource type="Texture2D" uid="uid://f1e1wdi6doja" path="res://assets/character/sanic.png" id="2_l4bjt"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ttyn2"]
-radius = 19.0
-height = 38.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_n7lwe"]
+radius = 5.09902
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d086w"]
-height = 56.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvk7t"]
+size = Vector2(1.25, 2)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cmeks"]
+radius = 1.0
 
 [node name="enemy" type="CharacterBody2D"]
 script = ExtResource("1_dhpgi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, -0.749939)
-scale = Vector2(0.00260417, 0.0126157)
-texture = ExtResource("1_6ixog")
+scale = Vector2(0.00215517, 0.00272989)
+texture = ExtResource("2_l4bjt")
 
 [node name="detectionArea" type="Area2D" parent="."]
-position = Vector2(-1, -1)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectionArea"]
-position = Vector2(2.00003, -0.75)
-shape = SubResource("CapsuleShape2D_ttyn2")
+shape = SubResource("CircleShape2D_n7lwe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.00003, 0.25)
-shape = SubResource("CapsuleShape2D_d086w")
+shape = SubResource("RectangleShape2D_cvk7t")
+
+[node name="enemyhitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemyhitbox"]
+shape = SubResource("CircleShape2D_cmeks")
 
 [connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="enemyhitbox" to="." method="_on_enemyhitbox_body_entered"]
