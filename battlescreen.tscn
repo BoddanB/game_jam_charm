@@ -6,15 +6,15 @@
 [node name="battlescreen" type="Node2D"]
 position = Vector2(2, -2)
 script = ExtResource("1_dudhk")
-metadata/_edit_vertical_guides_ = [143.0, 183.0]
+metadata/_edit_vertical_guides_ = [166.0, 184.0]
 metadata/_edit_horizontal_guides_ = [167.0, 167.0]
 
 [node name="battlecam" type="Camera2D" parent="."]
-position = Vector2(161, 172)
-zoom = Vector2(16, 16)
+position = Vector2(173, 172)
+zoom = Vector2(41, 41)
 
 [node name="smallplatform" parent="." instance=ExtResource("1_3i0ls")]
-position = Vector2(181, 174)
+position = Vector2(182, 174)
 
 [node name="smallplatform2" parent="." instance=ExtResource("1_3i0ls")]
-position = Vector2(141, 174)
+position = Vector2(164, 174)

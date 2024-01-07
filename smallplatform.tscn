@@ -3,15 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://dhmlpsfrri23m" path="res://assets/ground/grass_tile.png" id="1_f16mf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qvw0v"]
-size = Vector2(30, 5.83333)
+size = Vector2(10, 5.83333)
 
 [node name="smallplatform" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.004, 0.004)
+position = Vector2(0, -2.38419e-07)
+scale = Vector2(0.00121875, 0.00223148)
 texture = ExtResource("1_f16mf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1.5)
 scale = Vector2(1, 1.2)
 shape = SubResource("RectangleShape2D_qvw0v")
