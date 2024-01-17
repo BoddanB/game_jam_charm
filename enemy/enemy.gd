@@ -9,7 +9,7 @@ var player = null
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-
+#Pre defined physiscs function gets called every cycle.
 func _physics_process(delta):
 	# Apply the gravity.
 	apply_gravity(delta)
