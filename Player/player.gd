@@ -10,6 +10,8 @@ const jump_height: float = 4.0
 const jump_time_peak: float = 0.8
 const jump_time_descent: float = 0.4
 
+var player_health:Control
+
 #The jump velocity must be negtive in order to jump.
 @onready var jump_velocity: float = ((2.0 * jump_height) / jump_time_peak) * -1.0
 @onready var jump_gravity: float = ((-2.0 * jump_height) / (jump_time_peak * jump_time_peak)) * -1.0
@@ -19,9 +21,12 @@ const jump_time_descent: float = 0.4
 
 var jumps = 0
 
-# func _ready():
-# 	$AnimationPlayer.play("idle")
-
+func _ready():
+	player_health = $healthcontrol
+	player_health.init_health_bar(0, 100, 100)
+	player_health.health_bar_dimensions(15, 2)
+	player_health.show_percentage(false)
+	player_health.set_background_color(0, 1.0, 0, 1.0)
 
 #Pre defined physiscs function gets called every cycle.
 func _physics_process(delta):

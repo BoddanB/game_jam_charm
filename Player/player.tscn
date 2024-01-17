@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dycj2gvl83n0f"]
+[gd_scene load_steps=10 format=3 uid="uid://dycj2gvl83n0f"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_2igyg"]
 [ext_resource type="Texture2D" uid="uid://c5x7vcl8fg210" path="res://assets/character/duck normal sheet.png" id="2_rpso2"]
+[ext_resource type="PackedScene" uid="uid://4kyoqedf3m8y" path="res://healthbar.tscn" id="3_ic328"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smtey"]
 size = Vector2(1, 1.5)
@@ -93,3 +94,9 @@ libraries = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="playerhitbox"]
 shape = SubResource("CircleShape2D_vo6jb")
+
+[node name="healthcontrol" parent="." instance=ExtResource("3_ic328")]
+offset_left = -1.0
+offset_top = -3.0
+offset_right = 39.0
+offset_bottom = 37.0
