@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlinp2xnjcdc6"]
+
+[ext_resource type="PackedScene" uid="uid://1kkq816axe71" path="res://healthbar.tscn" id="1_1w70a"]
+[ext_resource type="PackedScene" uid="uid://fp0eddbyhdf8" path="res://attackmoves.tscn" id="2_g65dm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3lfi"]
+
+[node name="UIBackground" type="Panel"]
+offset_right = 592.0
+offset_bottom = 190.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i3lfi")
+
+[node name="combatUI" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 128.0
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+
+[node name="menu" type="VBoxContainer" parent="combatUI"]
+layout_mode = 2
+
+[node name="healthbar" parent="combatUI/menu" instance=ExtResource("1_1w70a")]
+layout_mode = 2
+
+[node name="menuBackground" parent="combatUI/menu" instance=ExtResource("2_g65dm")]
+custom_minimum_size = Vector2(270, 142)
+layout_mode = 2
+size_flags_horizontal = 0

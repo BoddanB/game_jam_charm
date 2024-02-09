@@ -4,22 +4,23 @@
 [ext_resource type="Texture2D" uid="uid://f1e1wdi6doja" path="res://assets/character/sanic.png" id="2_l4bjt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n7lwe"]
-radius = 5.09902
+radius = 164.076
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvk7t"]
-size = Vector2(1.25, 2)
+size = Vector2(187, 11)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cmeks"]
-radius = 1.0
+radius = 125.196
 
 [node name="enemy" type="CharacterBody2D"]
 script = ExtResource("1_dhpgi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.00215517, 0.00272989)
+scale = Vector2(0.295977, 0.331609)
 texture = ExtResource("2_l4bjt")
 
 [node name="detectionArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -27,6 +28,7 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_n7lwe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6.5, 98.5)
 shape = SubResource("RectangleShape2D_cvk7t")
 
 [node name="enemyhitbox" type="Area2D" parent="."]
@@ -34,6 +36,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemyhitbox"]
+position = Vector2(2, 9)
 shape = SubResource("CircleShape2D_cmeks")
 
 [connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]

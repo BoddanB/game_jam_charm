@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://fp0eddbyhdf8"]
+
+[ext_resource type="FontFile" uid="uid://32khdvpoi2ms" path="res://assets/CalculusSans-Regular.ttf" id="1_c4c2g"]
+[ext_resource type="Script" path="res://attackMenu.gd" id="1_u58wd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uf26a"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdyvw"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_anrsk"]
+bg_color = Color(0.403922, 0.690196, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6iweu"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="menuBackground" type="Panel"]
+offset_right = 270.0
+offset_bottom = 142.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uf26a")
+
+[node name="menuMargins" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+script = ExtResource("1_u58wd")
+
+[node name="attackmoves" type="VBoxContainer" parent="menuMargins"]
+layout_mode = 2
+
+[node name="buttonsTop" type="HBoxContainer" parent="menuMargins/attackmoves"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+
+[node name="Attack1" type="Button" parent="menuMargins/attackmoves/buttonsTop"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_c4c2g")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_rdyvw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_anrsk")
+text = "Test1"
+
+[node name="Attack2" type="Button" parent="menuMargins/attackmoves/buttonsTop"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_c4c2g")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_6iweu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_anrsk")
+text = "Test2"
+
+[node name="buttonsBottom" type="HBoxContainer" parent="menuMargins/attackmoves"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+
+[node name="Attack3" type="Button" parent="menuMargins/attackmoves/buttonsBottom"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_c4c2g")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_6iweu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_anrsk")
+text = "Test3"
+
+[node name="Attack4" type="Button" parent="menuMargins/attackmoves/buttonsBottom"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_c4c2g")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_6iweu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_anrsk")
+text = "Test4"
+
+[connection signal="pressed" from="menuMargins/attackmoves/buttonsTop/Attack1" to="menuMargins" method="_on_attack_1_pressed"]
+[connection signal="pressed" from="menuMargins/attackmoves/buttonsTop/Attack2" to="menuMargins" method="_on_attack_2_pressed"]
+[connection signal="pressed" from="menuMargins/attackmoves/buttonsBottom/Attack3" to="menuMargins" method="_on_attack_3_pressed"]
+[connection signal="pressed" from="menuMargins/attackmoves/buttonsBottom/Attack4" to="menuMargins" method="_on_attack_4_pressed"]

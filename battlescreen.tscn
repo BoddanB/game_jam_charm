@@ -1,20 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfprxr0tl4iuk"]
+[gd_scene load_steps=4 format=3 uid="uid://dfprxr0tl4iuk"]
 
 [ext_resource type="PackedScene" uid="uid://csekqe14oh1vg" path="res://smallplatform.tscn" id="1_3i0ls"]
 [ext_resource type="Script" path="res://battlescreen.gd" id="1_dudhk"]
+[ext_resource type="PackedScene" uid="uid://dlinp2xnjcdc6" path="res://combatmenu.tscn" id="3_adb2f"]
 
 [node name="battlescreen" type="Node2D"]
 position = Vector2(2, -2)
 script = ExtResource("1_dudhk")
-metadata/_edit_vertical_guides_ = [166.0, 184.0]
-metadata/_edit_horizontal_guides_ = [167.0, 167.0]
+metadata/_edit_vertical_guides_ = [-530.0, 460.0]
+metadata/_edit_horizontal_guides_ = [87.0, 91.0]
 
 [node name="battlecam" type="Camera2D" parent="."]
-position = Vector2(173, 172)
-zoom = Vector2(41, 41)
+position = Vector2(-1, -2)
 
 [node name="smallplatform" parent="." instance=ExtResource("1_3i0ls")]
-position = Vector2(182, 174)
+position = Vector2(-534, 172)
 
 [node name="smallplatform2" parent="." instance=ExtResource("1_3i0ls")]
-position = Vector2(164, 174)
+position = Vector2(455, 172)
+
+[node name="UIBackground" parent="." instance=ExtResource("3_adb2f")]
+offset_left = -1274.0
+offset_top = -255.0
+offset_right = -682.0
+offset_bottom = -65.0
